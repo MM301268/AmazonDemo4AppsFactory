@@ -10,3 +10,8 @@ Pre-Requirements: Java Version >= 15.0
 
 Supported Operating Systems: Linux, Mac, Windows
 
+---
+
+## License & copyright
+
+© Markus Meier, Markus.Meier68@gmx.de
