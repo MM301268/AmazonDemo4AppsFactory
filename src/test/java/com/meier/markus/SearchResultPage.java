@@ -33,8 +33,13 @@ public class SearchResultPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void sortASC(Page page) {
-    page.click(sortSelector);
-    page.click(itemAsc);
+    try {
+      page.click(sortSelector);
+      page.click(itemAsc);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -43,8 +48,13 @@ public class SearchResultPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void logout(Page page) {
-    page.hover(accountLists);
-    page.click(signOut);
+    try {
+      page.hover(accountLists);
+      page.click(signOut);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
 }

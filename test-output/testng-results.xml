@@ -2,18 +2,28 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-05T22:20:53 MEZ" name="Default suite" finished-at="2021-02-05T22:21:11 MEZ" duration-ms="17882">
+  <suite started-at="2021-02-07T15:47:02 MEZ" name="Default suite" finished-at="2021-02-07T15:47:28 MEZ" duration-ms="26496">
     <groups>
     </groups>
-    <test started-at="2021-02-05T22:20:53 MEZ" name="Default test" finished-at="2021-02-05T22:21:11 MEZ" duration-ms="17882">
+    <test started-at="2021-02-07T15:47:02 MEZ" name="Default test" finished-at="2021-02-07T15:47:28 MEZ" duration-ms="26496">
       <class name="com.meier.markus.FunctionalTest">
-        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-05T22:20:48 MEZ" name="doBeforeSuite" finished-at="2021-02-05T22:20:53 MEZ" duration-ms="4961" status="PASS">
+        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-07T15:46:57 MEZ" name="doBeforeSuite" finished-at="2021-02-07T15:47:02 MEZ" duration-ms="5095" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeSuite -->
-        <test-method signature="searchForSnickersAndPutItemAndCheckTest(java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-05T22:20:53 MEZ" name="searchForSnickersAndPutItemAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-05T22:21:03 MEZ" duration-ms="10104" status="PASS">
+        <test-method signature="searchForItemAndPutItemAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-07T15:47:02 MEZ" name="searchForItemAndPutItemAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-07T15:47:16 MEZ" duration-ms="14236" status="PASS">
           <params>
             <param index="0">
+              <value>
+                <![CDATA[Markus.Meier301268.MM@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[WsxEdcRfv!!]]>
+              </value>
+            </param>
+            <param index="2">
               <value>
                 <![CDATA[Snickers]]>
               </value>
@@ -21,10 +31,20 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchForSnickersAndPutItemAndCheckTest -->
-        <test-method signature="searchForSnickersAndPutItemAndCheckTest(java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-05T22:21:03 MEZ" name="searchForSnickersAndPutItemAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-05T22:21:11 MEZ" duration-ms="7743" status="PASS">
+        </test-method> <!-- searchForItemAndPutItemAndCheckTest -->
+        <test-method signature="searchForItemAndPutItemAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-07T15:47:16 MEZ" name="searchForItemAndPutItemAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-07T15:47:28 MEZ" duration-ms="12219" status="PASS">
           <params>
             <param index="0">
+              <value>
+                <![CDATA[Markus.Meier301268.MM@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[WsxEdcRfv!!]]>
+              </value>
+            </param>
+            <param index="2">
               <value>
                 <![CDATA[Skittles]]>
               </value>
@@ -32,8 +52,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchForSnickersAndPutItemAndCheckTest -->
-        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-05T22:21:11 MEZ" name="doAfterSuite" finished-at="2021-02-05T22:21:11 MEZ" duration-ms="96" status="PASS">
+        </test-method> <!-- searchForItemAndPutItemAndCheckTest -->
+        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@140c9f39]" started-at="2021-02-07T15:47:28 MEZ" name="doAfterSuite" finished-at="2021-02-07T15:47:28 MEZ" duration-ms="50" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doAfterSuite -->

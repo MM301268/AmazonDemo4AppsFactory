@@ -34,8 +34,8 @@ public class FunctionalTest {
     try {
       pww = new PlayWrightWorker();
       page = pww.init();
-    } catch (Exception ex) {
-      System.out.println(ex.toString());
+    } catch (Exception e) {
+      e.printStackTrace();
     }
 
   }
@@ -44,17 +44,18 @@ public class FunctionalTest {
    * Searches @Amazon for cheapest proposal of Snickers or Skittles
    */
   @Test(dataProvider = "provideSearchItemData")
-  private void searchForItemAndPutItemAndCheckTest(String item2search) {
+  private void searchForItemAndPutItemAndCheckTest(String userId, String passWord,
+      String item2search) {
     try {
       AmazonMainPage.navigate(page);
-      AmazonMainPage.login(page);
+      AmazonMainPage.login(page, userId, passWord);
       AmazonMainPage.acceptCookies(page);
       AmazonMainPage.searchForItem(page, item2search);
       SearchResultPage.sortASC(page);
       SearchResultPage.logout(page);
       Thread.sleep(3000);
-    } catch (Exception ex) {
-      System.out.println(ex.toString());
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
@@ -65,23 +66,26 @@ public class FunctionalTest {
   private void doAfterSuite() {
     try {
       pww.terminate();
-    } catch (Exception ex) {
-      // TODO Auto-generated catch block
-      System.out.println(ex.toString());
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
   /**
    * Provides test data to searchForSnickersAndPutItemAndCheckTests
    *
-   * @return String which includes in the first run snickers and in the second kittles
+   * @return String which includes in the first run snickers and in the second skittles
    */
   @DataProvider(name = "provideSearchItemData")
-  public Object[] item2seachData() {
-    Object[] data = new Object[2];
+  public Object[][] item2seachData() {
+    Object[][] data = new Object[2][3];
 
-    data[0] = "Snickers";
-    data[1] = "Skittles";
+    data[0][0] = "Markus.Meier301268.MM@gmail.com";
+    data[0][1] = "WsxEdcRfv!!";
+    data[0][2] = "Snickers";
+    data[1][0] = "Markus.Meier301268.MM@gmail.com";
+    data[1][1] = "WsxEdcRfv!!";
+    data[1][2] = "Skittles";
 
     return data;
   }

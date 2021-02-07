@@ -51,8 +51,13 @@ public class AmazonMainPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void acceptCookies(Page page) {
-    if (page.querySelector(acceptCookieButton) != null)
-      page.click(acceptCookieButton);
+    try {
+      if (page.querySelector(acceptCookieButton) != null)
+        page.click(acceptCookieButton);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -60,15 +65,20 @@ public class AmazonMainPage {
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void login(Page page) {
-    page.click(signinButton);
-    page.fill(userId, "Markus.Meier301268.MM@gmail.com");
-    page.click(continueButton);
-    page.fill(passWord, "WsxEdcRfv!!");
-    page.click(signinBuitton);
+  public static void login(Page page, String userIdValue, String passWordValue) {
+    try {
+      page.click(signinButton);
+      page.fill(userId, userIdValue);
+      page.click(continueButton);
+      page.fill(passWord, passWordValue);
+      page.click(signinBuitton);
 
-    if (page.querySelector(laterTest) != null)
-      page.click(laterTest);
+      if (page.querySelector(laterTest) != null)
+        page.click(laterTest);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -77,8 +87,13 @@ public class AmazonMainPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void logout(Page page) {
-    page.hover(accountLists);
-    page.click(signOut);
+    try {
+      page.hover(accountLists);
+      page.click(signOut);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -87,7 +102,12 @@ public class AmazonMainPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void navigate(Page page) {
-    page.navigate(testobjectURL);
+    try {
+      page.navigate(testobjectURL);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -96,8 +116,13 @@ public class AmazonMainPage {
    * @param page => Object of playwright where most of methods are executed against
    */
   public static void searchForItem(Page page, String searchItem) {
-    page.click(searchField);
-    page.type(searchField, searchItem);
-    page.click(searchButton);
+    try {
+      page.click(searchField);
+      page.type(searchField, searchItem);
+      page.click(searchButton);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 }
