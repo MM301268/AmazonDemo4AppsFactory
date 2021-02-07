@@ -31,20 +31,27 @@ public class FunctionalTest {
    */
   @BeforeSuite
   private void doBeforeSuite() {
-    pww = new PlayWrightWorker();
-    page = pww.init();
+    try {
+      pww = new PlayWrightWorker();
+      page = pww.init();
+    } catch (Exception ex) {
+      System.out.println(ex.toString());
+    }
+
   }
 
   /**
    * Searches @Amazon for cheapest proposal of Snickers or Skittles
    */
   @Test(dataProvider = "provideSearchItemData")
-  private void searchForSnickersAndPutItemAndCheckTest(String item2search) {
+  private void searchForItemAndPutItemAndCheckTest(String item2search) {
     try {
       AmazonMainPage.navigate(page);
+      AmazonMainPage.login(page);
       AmazonMainPage.acceptCookies(page);
       AmazonMainPage.searchForItem(page, item2search);
       SearchResultPage.sortASC(page);
+      SearchResultPage.logout(page);
       Thread.sleep(3000);
     } catch (Exception ex) {
       System.out.println(ex.toString());
@@ -56,7 +63,12 @@ public class FunctionalTest {
    */
   @AfterSuite
   private void doAfterSuite() {
-    pww.terminate();
+    try {
+      pww.terminate();
+    } catch (Exception ex) {
+      // TODO Auto-generated catch block
+      System.out.println(ex.toString());
+    }
   }
 
   /**
