@@ -31,12 +31,12 @@ public class AmazonMainPage {
    * @Class property signOut => Locator for sign out item in account detail and lists
    * 
    */
-  private static final String testobjectURL = "https://www.amazon.de";
-  private static final String acceptCookieButton = "#sp-cc-accept";
-  private static final String signinButton = "#nav-signin-tooltip";
-  private static final String userId = "#ap_email";
-  private static final String continueButton = "#continue";
-  private static final String passWord = "#ap_password";
+  private static final String TEST_OBJECT_URL = "https://www.amazon.de";
+  private static final String ACCEPT_COKKIE_BUTTON = "#sp-cc-accept";
+  private static final String SIGNIN_BUTTON = "#nav-signin-tooltip";
+  private static final String USER_ID = "#ap_email";
+  private static final String CONTINUE_BUTTON = "#continue";
+  private static final String PASSWORD = "#ap_password";
   private static final String signinBuitton = "#signInSubmit";
   private static final String laterTest = "text=/.*Später.*/";
   private static final String searchField = "#twotabsearchtextbox";
@@ -52,8 +52,8 @@ public class AmazonMainPage {
    */
   public static void acceptCookies(Page page) {
     try {
-      if (page.querySelector(acceptCookieButton) != null)
-        page.click(acceptCookieButton);
+      if (page.querySelector(ACCEPT_COKKIE_BUTTON) != null)
+        page.click(ACCEPT_COKKIE_BUTTON);
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -67,10 +67,10 @@ public class AmazonMainPage {
    */
   public static void login(Page page, String userIdValue, String passWordValue) {
     try {
-      page.click(signinButton);
-      page.fill(userId, userIdValue);
-      page.click(continueButton);
-      page.fill(passWord, EncryptionWorker.decrypt2String(passWordValue));
+      page.click(SIGNIN_BUTTON);
+      page.fill(USER_ID, userIdValue);
+      page.click(CONTINUE_BUTTON);
+      page.fill(PASSWORD, EncryptionWorker.decrypt2String(passWordValue));
       page.click(signinBuitton);
 
       if (page.querySelector(laterTest) != null)
@@ -103,7 +103,7 @@ public class AmazonMainPage {
    */
   public static void navigate(Page page) {
     try {
-      page.navigate(testobjectURL);
+      page.navigate(TEST_OBJECT_URL);
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();

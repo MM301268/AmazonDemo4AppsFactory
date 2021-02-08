@@ -37,7 +37,6 @@ public class FunctionalTest {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
   /**
