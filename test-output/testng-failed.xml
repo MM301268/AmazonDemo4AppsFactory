@@ -6,7 +6,8 @@
       <class name="com.meier.markus.FunctionalTest">
         <methods>
           <include name="doAfterSuite"/>
-          <include name="Testcase1Test"/>
+          <include name="searchForItemPutItBasketAndCheckTest"/>
+          <include name="searchForItemPutItBasketAndCheckTest"/>
           <include name="doBeforeSuite"/>
         </methods>
       </class> <!-- com.meier.markus.FunctionalTest -->

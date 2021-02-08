@@ -28,6 +28,8 @@ public class FunctionalTest {
    */
   private Page page;
   private PlayWrightWorker playWrightWorker;
+  private static AmazonProduct amazonProduct;
+  private static AmazonProduct cheapestAmazonProduct;
   private static List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
 
   /**
@@ -59,9 +61,11 @@ public class FunctionalTest {
       AmazonMainPage.searchForItem(page, item2search);
       SearchResultPage.sortASC(page);
       listAmazonProducts = SearchResultPage.getShoppingItemsDetails(page);
-
+      findCheapestProduct();
+      SearchResultPage.clickOnCheapestItemAndPutInBasked(page, cheapestAmazonProduct.getLocator());
+      ProductDetailsPage.putProductToCart(page);
       Thread.sleep(3000);
-      SearchResultPage.logout(page);
+      ProductDetailsPage.logout(page);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -77,6 +81,22 @@ public class FunctionalTest {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  /**
+   * Iterate listAmazonProducts and find cheapest item
+   */
+  private void findCheapestProduct() {
+    double compare_price = 9999.99;
+    int cheapest_item = 0;
+    for (int i = 0; i <= listAmazonProducts.size() - 1; i++) {
+      amazonProduct = listAmazonProducts.get(i);
+      if ((amazonProduct.getPrice() > 0.0) && (amazonProduct.getPrice() < compare_price)) {
+        compare_price = amazonProduct.getPrice();
+        cheapest_item = i;
+      }
+    }
+    cheapestAmazonProduct = listAmazonProducts.get(cheapest_item);
   }
 
   /**

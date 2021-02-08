@@ -27,28 +27,14 @@ public class SearchResultPage {
    *        name
    * @Class property EMPTY_STRING => Helper property for empty string
    */
-  private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
-  private static final String ITEM_SORT_ASC = "#s-result-sort-select_1";
   private static final String ACCOUNT_DETAIL_LIST = ".nav-long-width";
-  private static final String SIGNOUT = "//a[@id='nav-item-signout']/span";
+  private static final String EMPTY_STRING = "";
+  private static final String ITEM_SORT_ASC = "#s-result-sort-select_1";
   private static final String PRODUCT_CONTAINER =
       "//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[2]/div[X]/div/span/div";
   private static final String PRODUCT_NAME_EXT = "/div/div[2]/h2/a/span";
-  private static final String EMPTY_STRING = "";
-
-  /**
-   * Logout for User
-   *
-   * @param page => Object of playwright where most of methods are executed against
-   */
-  public static void logout(Page page) {
-    try {
-      page.hover(ACCOUNT_DETAIL_LIST);
-      page.click(SIGNOUT);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
+  private static final String SIGNOUT = "//a[@id='nav-item-signout']/span";
+  private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
 
   /**
    * Determine the product name for Amazon product
@@ -119,6 +105,24 @@ public class SearchResultPage {
     } catch (Exception e) {
       e.printStackTrace();
       return null;
+    }
+  }
+
+  public static void clickOnCheapestItemAndPutInBasked(Page page, String locatorCheapestItem) {
+    page.click(locatorCheapestItem);
+  }
+
+  /**
+   * Logout for User
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public static void logout(Page page) {
+    try {
+      page.hover(ACCOUNT_DETAIL_LIST);
+      page.click(SIGNOUT);
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
