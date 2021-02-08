@@ -10,6 +10,8 @@
 
 package com.meier.markus;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -21,9 +23,12 @@ public class FunctionalTest {
   /**
    * @Class property page => Object of playwright where most of methods are executed against
    * @Class property playWrightWorker => Instance of PlaywrightWorker
+   * @Class property listAmazonProducts => List of returned amazon products based on search result
+   *        page
    */
   private Page page;
   private PlayWrightWorker playWrightWorker;
+  private static List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
@@ -43,14 +48,19 @@ public class FunctionalTest {
    * Searches @Amazon for cheapest proposal of Snickers or Skittles
    */
   @Test(dataProvider = "provideSearchItemData")
-  private void searchForItemAndPutItemAndCheckTest(String userId, String passWord,
+  private void searchForItemPutItBasketAndCheckTest(String userId, String passWord,
       String item2search) {
+
     try {
+      listAmazonProducts.clear();
       AmazonMainPage.navigate(page);
       AmazonMainPage.login(page, userId, passWord);
       AmazonMainPage.acceptCookies(page);
       AmazonMainPage.searchForItem(page, item2search);
       SearchResultPage.sortASC(page);
+      listAmazonProducts = SearchResultPage.getShoppingItemsDetails(page);
+
+      Thread.sleep(3000);
       SearchResultPage.logout(page);
     } catch (Exception e) {
       e.printStackTrace();

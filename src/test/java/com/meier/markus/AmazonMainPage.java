@@ -55,7 +55,6 @@ public class AmazonMainPage {
       if (page.querySelector(ACCEPT_COKKIE_BUTTON) != null)
         page.click(ACCEPT_COKKIE_BUTTON);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -76,7 +75,6 @@ public class AmazonMainPage {
       if (page.querySelector(LATER_TEXT) != null)
         page.click(LATER_TEXT);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -91,7 +89,6 @@ public class AmazonMainPage {
       page.hover(ACCOUNT_LIST);
       page.click(SIGNOUT);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -105,7 +102,6 @@ public class AmazonMainPage {
     try {
       page.navigate(TEST_OBJECT_URL);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -121,7 +117,6 @@ public class AmazonMainPage {
       page.type(GLOBAL_SEARCH_FIELD, searchItem);
       page.click(SEARCH_BUTTON);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
