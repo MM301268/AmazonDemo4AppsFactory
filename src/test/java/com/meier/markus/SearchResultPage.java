@@ -16,16 +16,16 @@ public class SearchResultPage {
   /**
    * Class properties repository for web element detection
    * 
-   * @Class property sortselector => Locator for sorting search results
-   * @Class property itemasc => Locator search item ASC
+   * @Class property sortSelector => Locator for sorting search results
+   * @Class property itemAsc => Locator search item ASC
    * @Class property accountLists => Locator for account details and Lists
    * @Class property signOut => Locator for sign out item in account detail and lists
    * 
    */
-  private static final String sortSelector = "//span[@id='a-autoid-0-announce']/span";
-  private static final String itemAsc = "#s-result-sort-select_1";
-  private static final String accountLists = ".nav-long-width";
-  private static final String signOut = "//a[@id='nav-item-signout']/span";
+  private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
+  private static final String ITEM_SORT_ASC = "#s-result-sort-select_1";
+  private static final String ACCOUNT_DETAIL_LIST = ".nav-long-width";
+  private static final String SIGNOUT = "//a[@id='nav-item-signout']/span";
 
   /**
    * Performs a sort of search results ASC
@@ -34,8 +34,8 @@ public class SearchResultPage {
    */
   public static void sortASC(Page page) {
     try {
-      page.click(sortSelector);
-      page.click(itemAsc);
+      page.click(SORT_SELECTOR);
+      page.click(ITEM_SORT_ASC);
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -49,8 +49,8 @@ public class SearchResultPage {
    */
   public static void logout(Page page) {
     try {
-      page.hover(accountLists);
-      page.click(signOut);
+      page.hover(ACCOUNT_DETAIL_LIST);
+      page.click(SIGNOUT);
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();

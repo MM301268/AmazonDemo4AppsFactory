@@ -1,5 +1,5 @@
 /**
- * Decoder for decryptioning the password
+ * Decoder for decrypting the password
  *
  * @author Markus Meier
  * @version 1.0
