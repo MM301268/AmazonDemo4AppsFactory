@@ -21,15 +21,21 @@ import com.microsoft.playwright.Page;
 public class FunctionalTest {
 
   /**
-   * @Class property page => Object of playwright where most of methods are executed against
-   * @Class property playWrightWorker => Instance of PlaywrightWorker
-   * @Class property listAmazonProducts => List of returned amazon products based on search result
+   * @Class property page: Object of playwright where most of methods are executed against
+   * @Class property playWrightWorker: Instance of PlaywrightWorker
+   * @Class property amazonProduct: Helper property to information during findCheapestProduct
+   * @Class property cheapestAmazonProduct: Helper property to store the cheapest product found in
+   *        findCheapestProduct
+   * @Class property cartAmazonProduct: Helper property to store product information out of Amazon
+   *        cart page
+   * @Class property listAmazonProducts: List of returned amazon products based on search result
    *        page
    */
   private Page page;
   private PlayWrightWorker playWrightWorker;
   private static AmazonProduct amazonProduct;
   private static AmazonProduct cheapestAmazonProduct;
+  private static AmazonProduct cartAmazonProduct;
   private static List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
 
   /**
@@ -62,10 +68,13 @@ public class FunctionalTest {
       SearchResultPage.sortASC(page);
       listAmazonProducts = SearchResultPage.getShoppingItemsDetails(page);
       findCheapestProduct();
-      SearchResultPage.clickOnCheapestItemAndPutInBasked(page, cheapestAmazonProduct.getLocatorProductName());
+      SearchResultPage.clickOnCheapestItemAndPutInBasked(page,
+          cheapestAmazonProduct.getLocatorProductName());
       ProductDetailsPage.putProductToCart(page);
-      Thread.sleep(3000);
-      ProductDetailsPage.logout(page);
+      AmazonNewItemsPage.clickShoppingCartButton(page);
+      cartAmazonProduct = AmazonCartPage.getProductDetails(page);
+      AmazonCartPage.removeSelectedItemFromCart(page);
+      AmazonCartPage.logout(page);
     } catch (Exception e) {
       e.printStackTrace();
     }
