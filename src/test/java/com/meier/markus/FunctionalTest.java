@@ -81,10 +81,10 @@ public class FunctionalTest {
     Object[][] data = new Object[2][3];
 
     data[0][0] = "Markus.Meier301268.MM@gmail.com";
-    data[0][1] = "WsxEdcRfv!!";
+    data[0][1] = "kBK¬“f°.=Œ¥©Ííç=";
     data[0][2] = "Snickers";
     data[1][0] = "Markus.Meier301268.MM@gmail.com";
-    data[1][1] = "WsxEdcRfv!!";
+    data[1][1] = "kBK¬“f°.=Œ¥©Ííç=";
     data[1][2] = "Skittles";
 
     return data;

@@ -70,7 +70,8 @@ public class AmazonMainPage {
       page.click(signinButton);
       page.fill(userId, userIdValue);
       page.click(continueButton);
-      page.fill(passWord, passWordValue);
+      byte[] encryptedData = passWordValue.getBytes();
+      page.fill(passWord, Decoder.decrypt2String(encryptedData));
       page.click(signinBuitton);
 
       if (page.querySelector(laterTest) != null)
