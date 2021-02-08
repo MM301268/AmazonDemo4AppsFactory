@@ -93,7 +93,7 @@ public class SearchResultPage {
         String actProductContainerLocator =
             PRODUCT_CONTAINER.replace("[X]", "[" + Integer.toString(i) + "]");
         AmazonProduct amazonProduct = new AmazonProduct();
-        amazonProduct.setLocator(actProductContainerLocator + PRODUCT_NAME_EXT);
+        amazonProduct.setLocatorProductName(actProductContainerLocator + PRODUCT_NAME_EXT);
         amazonProduct.setName(getProductName(page, actProductContainerLocator));
         amazonProduct.setStrPrice(getProductPrice(page, actProductContainerLocator));
         if ((amazonProduct.getStrPrice() != EMPTY_STRING) && (amazonProduct.getStrPrice() != null))

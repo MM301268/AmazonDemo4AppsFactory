@@ -47,10 +47,10 @@ public class FunctionalTest {
   }
 
   /**
-   * Searches @Amazon for cheapest proposal of Snickers or Skittles
+   * Searches @Amazon for cheapest proposal of products provided by data provider
    */
   @Test(dataProvider = "provideSearchItemData")
-  private void searchForItemPutItBasketAndCheckTest(String userId, String passWord,
+  private void searchForItemPutCartAndCheckTest(String userId, String passWord,
       String item2search) {
 
     try {
@@ -62,7 +62,7 @@ public class FunctionalTest {
       SearchResultPage.sortASC(page);
       listAmazonProducts = SearchResultPage.getShoppingItemsDetails(page);
       findCheapestProduct();
-      SearchResultPage.clickOnCheapestItemAndPutInBasked(page, cheapestAmazonProduct.getLocator());
+      SearchResultPage.clickOnCheapestItemAndPutInBasked(page, cheapestAmazonProduct.getLocatorProductName());
       ProductDetailsPage.putProductToCart(page);
       Thread.sleep(3000);
       ProductDetailsPage.logout(page);
