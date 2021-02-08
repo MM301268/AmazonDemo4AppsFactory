@@ -1,3 +1,11 @@
+/**
+ * Decoder for decryptioning the password
+ *
+ * @author Markus Meier
+ * @version 1.0
+ *
+ *          This work complies with the JMU Honor Code.
+ */
 package com.meier.markus;
 
 import java.util.Base64;
@@ -5,15 +13,26 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Decoder {
+public class EncryptionWorker {
 
-  // private static final String UNICODE_FORMAT = "UTF-8";
+  /**
+   * Class properties repository for web element detection
+   * 
+   * @Class property cipher => Instance of Cipher
+   * @Class property ENCODED_KEY => Key String for decrypting the password
+   * 
+   */
   private static Cipher cipher;
   private static final String ENCODED_KEY = "+wPjsRGVxCjyvI0a3PDQQA==";
-  private static final String ENCODED_TEXT = "kBK¬“f°.=Œ¥©Ííç=";
 
-
-  public static String decrypt2String(byte[] dataToDecrypt) {
+  /**
+   * Decryption of password
+   *
+   * @param dataToDecrypt => Encrypted string to decrypt
+   * @return decrypted text to provide to login method
+   * 
+   */
+  public static String decrypt2String(String dataToDecrypt) {
     try {
 
       byte[] decodedKey = Base64.getDecoder().decode(ENCODED_KEY);
@@ -21,7 +40,7 @@ public class Decoder {
       SecretKey myKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
       cipher = Cipher.getInstance("AES");
 
-      byte[] encryptedData = ENCODED_TEXT.getBytes();
+      byte[] encryptedData = dataToDecrypt.getBytes();
       cipher.init(Cipher.DECRYPT_MODE, myKey);
       byte[] textDecrypted = cipher.doFinal(encryptedData);
       String decryptedText = new String(textDecrypted);

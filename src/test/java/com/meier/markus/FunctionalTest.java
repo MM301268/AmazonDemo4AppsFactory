@@ -20,10 +20,10 @@ public class FunctionalTest {
 
   /**
    * @Class property page => Object of playwright where most of methods are executed against
-   * @Class property pww => instance of PlaywrightWorker
+   * @Class property playWrightWorker => Instance of PlaywrightWorker
    */
   private Page page;
-  private PlayWrightWorker pww;
+  private PlayWrightWorker playWrightWorker;
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
@@ -32,8 +32,8 @@ public class FunctionalTest {
   @BeforeSuite
   private void doBeforeSuite() {
     try {
-      pww = new PlayWrightWorker();
-      page = pww.init();
+      playWrightWorker = new PlayWrightWorker();
+      page = playWrightWorker.init();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -53,7 +53,6 @@ public class FunctionalTest {
       AmazonMainPage.searchForItem(page, item2search);
       SearchResultPage.sortASC(page);
       SearchResultPage.logout(page);
-      Thread.sleep(3000);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -65,7 +64,7 @@ public class FunctionalTest {
   @AfterSuite
   private void doAfterSuite() {
     try {
-      pww.terminate();
+      playWrightWorker.terminate();
     } catch (Exception e) {
       e.printStackTrace();
     }
