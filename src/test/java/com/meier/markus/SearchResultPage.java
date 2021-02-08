@@ -16,10 +16,10 @@ public class SearchResultPage {
   /**
    * Class properties repository for web element detection
    * 
-   * @Class property sortSelector => Locator for sorting search results
-   * @Class property itemAsc => Locator search item ASC
-   * @Class property accountLists => Locator for account details and Lists
-   * @Class property signOut => Locator for sign out item in account detail and lists
+   * @Class property SORT_SELECTOR => Locator for sorting search results
+   * @Class property ITEM_SORT_ASC => Locator search item ASC
+   * @Class property ACCOUNT_DETAIL_LIST => Locator for account details and Lists
+   * @Class property SIGNOUT => Locator for sign out item in account detail and lists
    * 
    */
   private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
