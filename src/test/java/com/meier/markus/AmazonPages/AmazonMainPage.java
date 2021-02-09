@@ -8,8 +8,9 @@
  *          This work complies with the JMU Honor Code.
  */
 
-package com.meier.markus;
+package com.meier.markus.AmazonPages;
 
+import com.meier.markus.HelperClasses.EncryptionWorker;
 import com.microsoft.playwright.Page;
 
 public class AmazonMainPage {

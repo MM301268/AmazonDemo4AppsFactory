@@ -7,10 +7,11 @@
  *
  *          This work complies with the JMU Honor Code.
  */
-package com.meier.markus;
+package com.meier.markus.AmazonPages;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.meier.markus.HelperClasses.AmazonProduct;
 import com.microsoft.playwright.Page;
 
 public class AmazonSearchResultPage {

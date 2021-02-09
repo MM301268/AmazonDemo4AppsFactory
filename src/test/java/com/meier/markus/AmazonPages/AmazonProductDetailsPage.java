@@ -1,4 +1,4 @@
-package com.meier.markus;
+package com.meier.markus.AmazonPages;
 
 import com.microsoft.playwright.Page;
 

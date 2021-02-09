@@ -9,7 +9,7 @@
  *          This work complies with the JMU Honor Code.
  */
 
-package com.meier.markus;
+package com.meier.markus.HelperClasses;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;

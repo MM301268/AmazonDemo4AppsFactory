@@ -8,7 +8,7 @@
  *          This work complies with the JMU Honor Code.
  */
 
-package com.meier.markus;
+package com.meier.markus.HelperClasses;
 
 /**
  * @Class property name: product name

@@ -16,6 +16,13 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import com.meier.markus.AmazonPages.AmazonCartPage;
+import com.meier.markus.AmazonPages.AmazonMainPage;
+import com.meier.markus.AmazonPages.AmazonNewItemsPage;
+import com.meier.markus.AmazonPages.AmazonProductDetailsPage;
+import com.meier.markus.AmazonPages.AmazonSearchResultPage;
+import com.meier.markus.HelperClasses.AmazonProduct;
+import com.meier.markus.HelperClasses.PlayWrightWorker;
 import com.microsoft.playwright.Page;
 
 public class FunctionalTest {

@@ -6,7 +6,7 @@
  *
  *          This work complies with the JMU Honor Code.
  */
-package com.meier.markus;
+package com.meier.markus.HelperClasses;
 
 import java.util.Base64;
 import javax.crypto.Cipher;

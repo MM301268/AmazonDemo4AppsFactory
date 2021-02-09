@@ -1,5 +1,6 @@
-package com.meier.markus;
+package com.meier.markus.AmazonPages;
 
+import com.meier.markus.HelperClasses.AmazonProduct;
 import com.microsoft.playwright.Page;
 
 public class AmazonCartPage {
