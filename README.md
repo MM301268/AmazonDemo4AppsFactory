@@ -12,6 +12,8 @@ Supported Operating Systems: Linux, Mac, Windows
 
 ---
 
+**For further details have a look to wiki on github!**
+
 ## License & copyright
 
 © Markus Meier, Markus.Meier68@gmx.de
