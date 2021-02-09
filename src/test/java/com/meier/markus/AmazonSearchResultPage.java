@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.microsoft.playwright.Page;
 
-public class SearchResultPage {
+public class AmazonSearchResultPage {
 
   /**
    * Class properties repository for web element detection

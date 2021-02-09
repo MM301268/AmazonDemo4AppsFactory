@@ -2,7 +2,7 @@ package com.meier.markus;
 
 import com.microsoft.playwright.Page;
 
-public class ProductDetailsPage {
+public class AmazonProductDetailsPage {
 
   private static final String ACCOUNT_DETAIL_LIST = ".nav-long-width";
   private static final String CART_BUTTON = "#add-to-cart-button";

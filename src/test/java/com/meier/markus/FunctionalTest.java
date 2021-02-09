@@ -33,10 +33,10 @@ public class FunctionalTest {
    */
   private Page page;
   private PlayWrightWorker playWrightWorker;
-  private static AmazonProduct amazonProduct;
-  private static AmazonProduct cheapestAmazonProduct;
-  private static AmazonProduct cartAmazonProduct;
-  private static List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
+  private AmazonProduct amazonProduct;
+  private AmazonProduct cheapestAmazonProduct;
+  private AmazonProduct cartAmazonProduct = new AmazonProduct();
+  private List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
@@ -65,14 +65,15 @@ public class FunctionalTest {
       AmazonMainPage.login(page, userId, passWord);
       AmazonMainPage.acceptCookies(page);
       AmazonMainPage.searchForItem(page, item2search);
-      SearchResultPage.sortASC(page);
-      listAmazonProducts = SearchResultPage.getShoppingItemsDetails(page);
+      AmazonSearchResultPage.sortASC(page);
+      listAmazonProducts = AmazonSearchResultPage.getShoppingItemsDetails(page);
       findCheapestProduct();
-      SearchResultPage.clickOnCheapestItemAndPutInBasked(page,
+      AmazonSearchResultPage.clickOnCheapestItemAndPutInBasked(page,
           cheapestAmazonProduct.getLocatorProductName());
-      ProductDetailsPage.putProductToCart(page);
+      AmazonProductDetailsPage.putProductToCart(page);
       AmazonNewItemsPage.clickShoppingCartButton(page);
       cartAmazonProduct = AmazonCartPage.getProductDetails(page);
+      // System.out.println(cartAmazonProduct.getName());
       AmazonCartPage.removeSelectedItemFromCart(page);
       AmazonCartPage.logout(page);
     } catch (Exception e) {
