@@ -12,6 +12,7 @@ package com.meier.markus.AmazonPages;
 import java.util.ArrayList;
 import java.util.List;
 import com.meier.markus.HelperClasses.AmazonProduct;
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.meier.markus.HelperClasses.StrHlp;
 import com.microsoft.playwright.Page;
 
@@ -52,7 +53,11 @@ public class AmazonSearchResultPage {
    * @param locatorCheapestItem Locator for cheapest item
    */
   public void clickOnCheapestItemAndPutInBasked(String locatorCheapestItem) {
-    page.click(locatorCheapestItem);
+    try {
+      page.click(locatorCheapestItem);
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
   /**
@@ -67,7 +72,7 @@ public class AmazonSearchResultPage {
       if (page.querySelector(productNameLocater) != null)
         return page.textContent(productNameLocater).toString();
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
       return null;
     }
     return null;
@@ -92,7 +97,7 @@ public class AmazonSearchResultPage {
           return page.textContent(productPriceLocater).toString();
       }
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
       return null;
     }
     return null;
@@ -122,7 +127,7 @@ public class AmazonSearchResultPage {
       }
       return listAmazonProduct;
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
       return null;
     }
   }
@@ -135,7 +140,7 @@ public class AmazonSearchResultPage {
       page.click(SORT_SELECTOR);
       page.click(ITEM_SORT_ASC);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 }

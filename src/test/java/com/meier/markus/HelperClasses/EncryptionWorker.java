@@ -45,7 +45,7 @@ public class EncryptionWorker {
       return decryptedText;
 
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
       return null;
     }
 

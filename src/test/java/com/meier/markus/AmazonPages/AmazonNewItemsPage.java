@@ -7,6 +7,7 @@
  */
 package com.meier.markus.AmazonPages;
 
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.microsoft.playwright.Page;
 
 public class AmazonNewItemsPage {
@@ -36,7 +37,7 @@ public class AmazonNewItemsPage {
     try {
       page.click(LOCATOR_CART_BUTTON);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 

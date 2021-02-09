@@ -9,6 +9,7 @@
 package com.meier.markus.AmazonPages;
 
 import com.meier.markus.HelperClasses.AmazonProduct;
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.meier.markus.HelperClasses.StrHlp;
 import com.microsoft.playwright.Page;
 
@@ -59,7 +60,7 @@ public class AmazonCartPage {
         amazonProduct.setPrice(Double.parseDouble((amazonProduct.getStrPrice().replace(",", "."))));
       return amazonProduct;
     } catch (NumberFormatException e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
       return null;
     }
   }
@@ -68,8 +69,12 @@ public class AmazonCartPage {
    * Removes single item for shopping cart
    */
   public void removeSelectedItemFromCart() {
-    page.click(SELECTOR_AMOUNT);
-    page.click(SELECTOR_NULL);
+    try {
+      page.click(SELECTOR_AMOUNT);
+      page.click(SELECTOR_NULL);
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
 }

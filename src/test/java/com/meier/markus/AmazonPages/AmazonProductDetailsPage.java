@@ -8,6 +8,7 @@
  */
 package com.meier.markus.AmazonPages;
 
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.microsoft.playwright.Page;
 
 public class AmazonProductDetailsPage {
@@ -34,7 +35,11 @@ public class AmazonProductDetailsPage {
    * Put Product to Cart
    */
   public void putProductToCart() {
-    page.click(CART_BUTTON);
+    try {
+      page.click(CART_BUTTON);
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
 }

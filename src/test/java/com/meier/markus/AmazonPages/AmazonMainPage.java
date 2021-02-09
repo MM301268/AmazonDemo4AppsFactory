@@ -9,6 +9,7 @@
 package com.meier.markus.AmazonPages;
 
 import com.meier.markus.HelperClasses.EncryptionWorker;
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.microsoft.playwright.Page;
 
 public class AmazonMainPage {
@@ -75,7 +76,7 @@ public class AmazonMainPage {
       if (page.querySelector(LATER_TEXT) != null)
         page.click(LATER_TEXT);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -86,7 +87,7 @@ public class AmazonMainPage {
     try {
       page.navigate(TEST_OBJECT_URL);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -99,7 +100,7 @@ public class AmazonMainPage {
       page.type(GLOBAL_SEARCH_FIELD, searchItem);
       page.click(SEARCH_BUTTON);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 }

@@ -10,6 +10,7 @@ package com.meier.markus.HelperClasses;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
 
 public class DeviceManager {
 
@@ -24,9 +25,14 @@ public class DeviceManager {
    *
    */
   public void determineDisplaySize() {
-    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-    width = gd.getDisplayMode().getWidth();
-    height = gd.getDisplayMode().getHeight();
+    try {
+      GraphicsDevice gd =
+          GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+      width = gd.getDisplayMode().getWidth();
+      height = gd.getDisplayMode().getHeight();
+    } catch (HeadlessException e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
   /**

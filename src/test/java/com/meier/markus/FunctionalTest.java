@@ -23,6 +23,7 @@ import com.meier.markus.AmazonPages.AmazonNewItemsPage;
 import com.meier.markus.AmazonPages.AmazonProductDetailsPage;
 import com.meier.markus.AmazonPages.AmazonSearchResultPage;
 import com.meier.markus.HelperClasses.AmazonProduct;
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.meier.markus.HelperClasses.PlayWrightWorker;
 import com.microsoft.playwright.Page;
 
@@ -67,7 +68,7 @@ public class FunctionalTest {
       amazonCartPage = new AmazonCartPage(page);
       amazonGeneralPage = new AmazonGeneralPage(page);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -79,7 +80,7 @@ public class FunctionalTest {
     try {
       listAmazonProducts.clear();
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -107,7 +108,7 @@ public class FunctionalTest {
       amazonCartPage.removeSelectedItemFromCart();
       amazonGeneralPage.logout();
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -119,7 +120,7 @@ public class FunctionalTest {
     try {
       playWrightWorker.terminate();
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 
@@ -139,7 +140,7 @@ public class FunctionalTest {
       }
       cheapestAmazonProduct = listAmazonProducts.get(cheapest_item);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 

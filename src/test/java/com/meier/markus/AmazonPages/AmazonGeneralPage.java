@@ -8,6 +8,7 @@
 
 package com.meier.markus.AmazonPages;
 
+import com.meier.markus.HelperClasses.ErrorHandler;
 import com.microsoft.playwright.Page;
 
 public class AmazonGeneralPage {
@@ -42,7 +43,7 @@ public class AmazonGeneralPage {
       page.hover(ACCOUNT_DETAIL_LIST);
       page.click(SIGNOUT);
     } catch (Exception e) {
-      e.printStackTrace();
+      ErrorHandler.markTestCaseAsFailed(e);
     }
   }
 }

@@ -31,29 +31,43 @@ public class PlayWrightWorker {
    * Instanciates Playwright and creates browser and context
    */
   public PlayWrightWorker() {
-    DeviceManager dm = new DeviceManager();
-    dm.determineDisplaySize();
-    int scrWidth = dm.getScreenSizeWidth();
-    int scrHeight = dm.getScreenSizeHeight();
-    Playwright playwright = Playwright.create();
-    browser = playwright.chromium().launch(new BrowserType.LaunchOptions().withHeadless(false));
-    context = browser.newContext(new Browser.NewContextOptions().withViewport(scrWidth, scrHeight));
+    try {
+      DeviceManager dm = new DeviceManager();
+      dm.determineDisplaySize();
+      int scrWidth = dm.getScreenSizeWidth();
+      int scrHeight = dm.getScreenSizeHeight();
+      Playwright playwright = Playwright.create();
+      browser = playwright.chromium().launch(new BrowserType.LaunchOptions().withHeadless(false));
+      context =
+          browser.newContext(new Browser.NewContextOptions().withViewport(scrWidth, scrHeight));
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
   /**
    * Instanciates new page object
    */
   public Page init() {
-    Page page = context.newPage();
-    return page;
+    try {
+      Page page = context.newPage();
+      return page;
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+      return null;
+    }
   }
 
   /**
    * Destructor of context and browser
    */
   public void terminate() {
-    context.close();
-    // browser.close();
+    try {
+      context.close();
+      browser.close();
+    } catch (Exception e) {
+      ErrorHandler.markTestCaseAsFailed(e);
+    }
   }
 
 }
