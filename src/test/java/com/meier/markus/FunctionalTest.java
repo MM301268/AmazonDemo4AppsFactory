@@ -10,6 +10,7 @@
 
 package com.meier.markus;
 
+import static org.testng.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import org.testng.annotations.AfterSuite;
@@ -80,7 +81,8 @@ public class FunctionalTest {
       AmazonProductDetailsPage.putProductToCart(page);
       AmazonNewItemsPage.clickShoppingCartButton(page);
       cartAmazonProduct = AmazonCartPage.getProductDetails(page);
-      // System.out.println(cartAmazonProduct.getName());
+      assertEquals(cheapestAmazonProduct.getName(), cartAmazonProduct.getName());
+      assertEquals(cheapestAmazonProduct.getPrice(), cartAmazonProduct.getPrice());
       AmazonCartPage.removeSelectedItemFromCart(page);
       AmazonCartPage.logout(page);
     } catch (Exception e) {

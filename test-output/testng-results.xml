@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-09T10:27:53 MEZ" name="Default suite" finished-at="2021-02-09T10:28:28 MEZ" duration-ms="34724">
+  <suite started-at="2021-02-09T11:13:48 MEZ" name="Default suite" finished-at="2021-02-09T11:14:21 MEZ" duration-ms="32704">
     <groups>
     </groups>
-    <test started-at="2021-02-09T10:27:53 MEZ" name="Default test" finished-at="2021-02-09T10:28:28 MEZ" duration-ms="34724">
+    <test started-at="2021-02-09T11:13:48 MEZ" name="Default test" finished-at="2021-02-09T11:14:21 MEZ" duration-ms="32704">
       <class name="com.meier.markus.FunctionalTest">
-        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T10:27:46 MEZ" name="doBeforeSuite" finished-at="2021-02-09T10:27:53 MEZ" duration-ms="7187" status="PASS">
+        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T11:13:43 MEZ" name="doBeforeSuite" finished-at="2021-02-09T11:13:48 MEZ" duration-ms="5052" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeSuite -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T10:27:53 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T10:28:12 MEZ" duration-ms="19336" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T11:13:48 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T11:14:06 MEZ" duration-ms="17465" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,7 +32,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T10:28:12 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T10:28:28 MEZ" duration-ms="15324" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T11:14:06 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T11:14:21 MEZ" duration-ms="15203" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,7 +53,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T10:28:28 MEZ" name="doAfterSuite" finished-at="2021-02-09T10:28:28 MEZ" duration-ms="67" status="PASS">
+        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T11:14:21 MEZ" name="doAfterSuite" finished-at="2021-02-09T11:14:21 MEZ" duration-ms="80" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doAfterSuite -->
