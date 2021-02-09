@@ -12,6 +12,10 @@ Supported Operating Systems: Linux, Mac, Windows
 
 ---
 
+Execution: mvn test
+
+---
+
 **For further details have a look to wiki on github!**
 
 ## License & copyright

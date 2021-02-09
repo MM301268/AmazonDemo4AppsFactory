@@ -7,7 +7,7 @@
         <methods>
           <include name="doAfterSuite"/>
           <include name="doBeforeTest"/>
-          <include name="searchForItemPutCartAndCheckTest" invocation-numbers="0"/>
+          <include name="searchForItemPutCartAndCheckTest" invocation-numbers="1"/>
           <include name="doBeforeSuite"/>
         </methods>
       </class> <!-- com.meier.markus.FunctionalTest -->

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-09T14:06:37 MEZ" name="Default suite" finished-at="2021-02-09T14:07:09 MEZ" duration-ms="31479">
+  <suite started-at="2021-02-09T14:16:46 MEZ" name="Default suite" finished-at="2021-02-09T14:17:35 MEZ" duration-ms="48281">
     <groups>
     </groups>
-    <test started-at="2021-02-09T14:06:37 MEZ" name="Default test" finished-at="2021-02-09T14:07:09 MEZ" duration-ms="31479">
+    <test started-at="2021-02-09T14:16:46 MEZ" name="Default test" finished-at="2021-02-09T14:17:35 MEZ" duration-ms="48281">
       <class name="com.meier.markus.FunctionalTest">
-        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:06:33 MEZ" name="doBeforeSuite" finished-at="2021-02-09T14:06:37 MEZ" duration-ms="4790" status="PASS">
+        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:16:42 MEZ" name="doBeforeSuite" finished-at="2021-02-09T14:16:46 MEZ" duration-ms="4665" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeSuite -->
-        <test-method is-config="true" signature="doBeforeTest()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:06:37 MEZ" name="doBeforeTest" finished-at="2021-02-09T14:06:37 MEZ" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="doBeforeTest()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:16:46 MEZ" name="doBeforeTest" finished-at="2021-02-09T14:16:46 MEZ" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:06:37 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T14:06:55 MEZ" duration-ms="17341" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:16:46 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T14:17:03 MEZ" duration-ms="17057" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -36,11 +36,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:06:55 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T14:07:09 MEZ" duration-ms="14091" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:17:03 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T14:17:35 MEZ" duration-ms="31184" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Markus.Meier301268.MM@gmail.com]]>
+                <![CDATA[Markus.Meier301268.MM@gmail.com123]]>
               </value>
             </param>
             <param index="1">
@@ -54,10 +54,52 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.fail(Assert.java:106)
+at com.meier.markus.HelperClasses.ErrorHandler.markTestCaseAsFailed(ErrorHandler.java:21)
+at com.meier.markus.AmazonPages.AmazonMainPage.login(AmazonMainPage.java:79)
+at com.meier.markus.FunctionalTest.searchForItemPutCartAndCheckTest(FunctionalTest.java:95)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:07:09 MEZ" name="doAfterSuite" finished-at="2021-02-09T14:07:09 MEZ" duration-ms="290" status="PASS">
+        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T14:17:35 MEZ" name="doAfterSuite" finished-at="2021-02-09T14:17:35 MEZ" duration-ms="297" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doAfterSuite -->
