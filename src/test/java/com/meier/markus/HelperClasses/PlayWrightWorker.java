@@ -5,8 +5,6 @@
  * @author Markus Meier
  * @version 1.0
  *
- *
- *          This work complies with the JMU Honor Code.
  */
 
 package com.meier.markus.HelperClasses;
@@ -20,6 +18,8 @@ import com.microsoft.playwright.Playwright;
 public class PlayWrightWorker {
 
   /**
+   * Class properties repository for web element detection
+   * 
    * @Class property browser => instance of web browser
    * @Class property context => instance of web browser context
    */

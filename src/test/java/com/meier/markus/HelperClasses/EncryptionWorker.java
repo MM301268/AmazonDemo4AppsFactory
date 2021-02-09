@@ -4,7 +4,6 @@
  * @author Markus Meier
  * @version 1.0
  *
- *          This work complies with the JMU Honor Code.
  */
 package com.meier.markus.HelperClasses;
 
@@ -20,7 +19,6 @@ public class EncryptionWorker {
    * 
    * @Class property cipher => Instance of Cipher
    * @Class property ENCODED_KEY => Key String for decrypting the password
-   * 
    */
   private static Cipher cipher;
   private static final String ENCODED_KEY = "+wPjsRGVxCjyvI0a3PDQQA==";
@@ -29,8 +27,8 @@ public class EncryptionWorker {
    * Decryption of password
    *
    * @param dataToDecrypt => Encrypted string to decrypt
-   * @return decrypted text to provide to login method
    * 
+   * @return decrypted text to provide to login method
    */
   public static String decrypt2String(String dataToDecrypt) {
     try {

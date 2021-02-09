@@ -4,8 +4,6 @@
  * @author Markus Meier
  * @version 1.0
  *
- *
- *          This work complies with the JMU Honor Code.
  */
 
 package com.meier.markus;
@@ -18,6 +16,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.meier.markus.AmazonPages.AmazonCartPage;
+import com.meier.markus.AmazonPages.AmazonGeneralPage;
 import com.meier.markus.AmazonPages.AmazonMainPage;
 import com.meier.markus.AmazonPages.AmazonNewItemsPage;
 import com.meier.markus.AmazonPages.AmazonProductDetailsPage;
@@ -29,22 +28,21 @@ import com.microsoft.playwright.Page;
 public class FunctionalTest {
 
   /**
-   * @Class property page: Object of playwright where most of methods are executed against
-   * @Class property playWrightWorker: Instance of PlaywrightWorker
-   * @Class property amazonProduct: Helper property to information during findCheapestProduct
-   * @Class property cheapestAmazonProduct: Helper property to store the cheapest product found in
-   *        findCheapestProduct
-   * @Class property cartAmazonProduct: Helper property to store product information out of Amazon
+   * @Class property amazonProduct Helper property to information during findCheapestProduct
+   * @Class property cartAmazonProduct Helper property to store product information out of Amazon
    *        cart page
-   * @Class property listAmazonProducts: List of returned amazon products based on search result
-   *        page
+   * @Class property cheapestAmazonProduct Helper property to store the cheapest product found in
+   *        findCheapestProduct
+   * @Class property listAmazonProducts List of returned amazon products based on search result page
+   * @Class property page Object of playwright where most of methods are executed against
+   * @Class property playWrightWorker Instance of PlaywrightWorker
    */
+  private AmazonProduct amazonProduct;
+  private AmazonProduct cartAmazonProduct = new AmazonProduct();
+  private AmazonProduct cheapestAmazonProduct;
+  private List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
   private Page page;
   private PlayWrightWorker playWrightWorker;
-  private AmazonProduct amazonProduct;
-  private AmazonProduct cheapestAmazonProduct;
-  private AmazonProduct cartAmazonProduct = new AmazonProduct();
-  private List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
@@ -84,7 +82,7 @@ public class FunctionalTest {
       assertEquals(cheapestAmazonProduct.getName(), cartAmazonProduct.getName());
       assertEquals(cheapestAmazonProduct.getPrice(), cartAmazonProduct.getPrice());
       AmazonCartPage.removeSelectedItemFromCart(page);
-      AmazonCartPage.logout(page);
+      AmazonGeneralPage.logout(page);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -121,7 +119,7 @@ public class FunctionalTest {
   /**
    * Provides test data to searchForSnickersAndPutItemAndCheckTests
    *
-   * @return String which includes in the first run snickers and in the second skittles
+   * @return String includes in the first run snickers and in the second skittles
    */
   @DataProvider(name = "provideSearchItemData")
   public Object[][] item2seachData() {

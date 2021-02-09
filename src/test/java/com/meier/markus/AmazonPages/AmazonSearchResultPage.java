@@ -12,6 +12,7 @@ package com.meier.markus.AmazonPages;
 import java.util.ArrayList;
 import java.util.List;
 import com.meier.markus.HelperClasses.AmazonProduct;
+import com.meier.markus.HelperClasses.StrHlp;
 import com.microsoft.playwright.Page;
 
 public class AmazonSearchResultPage {
@@ -19,23 +20,24 @@ public class AmazonSearchResultPage {
   /**
    * Class properties repository for web element detection
    * 
-   * @Class property SORT_SELECTOR => Locator for sorting search results
-   * @Class property ITEM_SORT_ASC => Locator search item ASC
-   * @Class property ACCOUNT_DETAIL_LIST => Locator for account details and Lists
-   * @Class property SIGNOUT => Locator for sign out item in account detail and lists
-   * @Class property PRODUCT_CONTAINER => Base path for the product container
-   * @Class property PRODUCT_NAME_EXT => Extension to PRODUCT_CONTAINER for determine the product's
+   * @Class property ITEM_SORT_ASC Locator search item ASC
+   * @Class property PRODUCT_CONTAINER Base path for the product container
+   * @Class property PRODUCT_NAME_EXT Extension to PRODUCT_CONTAINER for determine the product's
    *        name
-   * @Class property EMPTY_STRING => Helper property for empty string
+   * @Class property SORT_SELECTOR Locator for sorting search results
    */
-  private static final String ACCOUNT_DETAIL_LIST = ".nav-long-width";
-  private static final String EMPTY_STRING = "";
   private static final String ITEM_SORT_ASC = "#s-result-sort-select_1";
   private static final String PRODUCT_CONTAINER =
       "//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[2]/div[X]/div/span/div";
   private static final String PRODUCT_NAME_EXT = "/div/div[2]/h2/a/span";
-  private static final String SIGNOUT = "//a[@id='nav-item-signout']/span";
   private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
+
+  /**
+   * Click on cheapest item identified by the locator
+   */
+  public static void clickOnCheapestItemAndPutInBasked(Page page, String locatorCheapestItem) {
+    page.click(locatorCheapestItem);
+  }
 
   /**
    * Determine the product name for Amazon product
@@ -97,7 +99,8 @@ public class AmazonSearchResultPage {
         amazonProduct.setLocatorProductName(actProductContainerLocator + PRODUCT_NAME_EXT);
         amazonProduct.setName(getProductName(page, actProductContainerLocator));
         amazonProduct.setStrPrice(getProductPrice(page, actProductContainerLocator));
-        if ((amazonProduct.getStrPrice() != EMPTY_STRING) && (amazonProduct.getStrPrice() != null))
+        if ((amazonProduct.getStrPrice() != StrHlp.EMPTY_STRING)
+            && (amazonProduct.getStrPrice() != null))
           amazonProduct
               .setPrice(Double.parseDouble((amazonProduct.getStrPrice().replace(",", "."))));
         listAmazonProduct.add(amazonProduct);
@@ -106,24 +109,6 @@ public class AmazonSearchResultPage {
     } catch (Exception e) {
       e.printStackTrace();
       return null;
-    }
-  }
-
-  public static void clickOnCheapestItemAndPutInBasked(Page page, String locatorCheapestItem) {
-    page.click(locatorCheapestItem);
-  }
-
-  /**
-   * Logout for User
-   *
-   * @param page => Object of playwright where most of methods are executed against
-   */
-  public static void logout(Page page) {
-    try {
-      page.hover(ACCOUNT_DETAIL_LIST);
-      page.click(SIGNOUT);
-    } catch (Exception e) {
-      e.printStackTrace();
     }
   }
 

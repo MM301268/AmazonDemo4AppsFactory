@@ -4,8 +4,6 @@
  * @author Markus Meier
  * @version 1.0
  *
- *
- *          This work complies with the JMU Honor Code.
  */
 
 package com.meier.markus.HelperClasses;
