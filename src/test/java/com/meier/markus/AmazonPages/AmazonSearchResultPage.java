@@ -31,11 +31,24 @@ public class AmazonSearchResultPage {
       "//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[2]/div[X]/div/span/div";
   private static final String PRODUCT_NAME_EXT = "/div/div[2]/h2/a/span";
   private static final String SORT_SELECTOR = "//span[@id='a-autoid-0-announce']/span";
+  private Page page;
+  private AmazonProduct amazonProduct;
+
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonSearchResultPage(Page page) {
+    this.page = page;
+    amazonProduct = new AmazonProduct();
+  }
+
 
   /**
    * Click on cheapest item identified by the locator
    */
-  public static void clickOnCheapestItemAndPutInBasked(Page page, String locatorCheapestItem) {
+  public void clickOnCheapestItemAndPutInBasked(String locatorCheapestItem) {
     page.click(locatorCheapestItem);
   }
 
@@ -45,7 +58,7 @@ public class AmazonSearchResultPage {
    * @param page => Object of playwright where most of methods are executed against
    * @return Name
    */
-  private static String getProductName(Page page, String productContainerLocator) {
+  private String getProductName(String productContainerLocator) {
     try {
       String productNameLocater = productContainerLocator + PRODUCT_NAME_EXT;
       if (page.querySelector(productNameLocater) != null)
@@ -63,7 +76,7 @@ public class AmazonSearchResultPage {
    * @param page => Object of playwright where most of methods are executed against
    * @return Price as string!!!
    */
-  private static String getProductPrice(Page page, String productContainerLocator) {
+  private String getProductPrice(String productContainerLocator) {
     try {
       String productPriceLocater =
           productContainerLocator + "/div/div[3]/div/div/div/a/span[1]/span[2]/span[1]";
@@ -88,17 +101,17 @@ public class AmazonSearchResultPage {
    * @param page => Object of playwright where most of methods are executed against
    * @return List<AmazonProduct> => found first 5 based on search criteria and sort
    */
-  public static List<AmazonProduct> getShoppingItemsDetails(Page page) {
+  public List<AmazonProduct> getShoppingItemsDetails() {
     try {
       Thread.sleep(2000);
       List<AmazonProduct> listAmazonProduct = new ArrayList<AmazonProduct>();
       for (int i = 2; i <= 6; i++) {
         String actProductContainerLocator =
             PRODUCT_CONTAINER.replace("[X]", "[" + Integer.toString(i) + "]");
-        AmazonProduct amazonProduct = new AmazonProduct();
+
         amazonProduct.setLocatorProductName(actProductContainerLocator + PRODUCT_NAME_EXT);
-        amazonProduct.setName(getProductName(page, actProductContainerLocator));
-        amazonProduct.setStrPrice(getProductPrice(page, actProductContainerLocator));
+        amazonProduct.setName(getProductName(actProductContainerLocator));
+        amazonProduct.setStrPrice(getProductPrice(actProductContainerLocator));
         if ((amazonProduct.getStrPrice() != StrHlp.EMPTY_STRING)
             && (amazonProduct.getStrPrice() != null))
           amazonProduct
@@ -117,7 +130,7 @@ public class AmazonSearchResultPage {
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void sortASC(Page page) {
+  public void sortASC() {
     try {
       page.click(SORT_SELECTOR);
       page.click(ITEM_SORT_ASC);

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.meier.markus.AmazonPages.AmazonCartPage;
@@ -43,6 +44,12 @@ public class FunctionalTest {
   private List<AmazonProduct> listAmazonProducts = new ArrayList<AmazonProduct>();
   private Page page;
   private PlayWrightWorker playWrightWorker;
+  private AmazonMainPage amazonMainPage;
+  private AmazonSearchResultPage amazonSearchResultPage;
+  private AmazonProductDetailsPage amazonProductDetailsPage;
+  private AmazonNewItemsPage amazonNewItemsPage;
+  private AmazonCartPage amazonCartPage;
+  private AmazonGeneralPage amazonGeneralPage;
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
@@ -59,30 +66,47 @@ public class FunctionalTest {
   }
 
   /**
+   * DoBeforTest clears List of Amazon products may have been filled by previous test cases and
+   * initiates the Amazon pages
+   */
+  @BeforeTest
+  private void doBeforeTest() {
+    try {
+      listAmazonProducts.clear();
+      amazonMainPage = new AmazonMainPage(page);
+      amazonSearchResultPage = new AmazonSearchResultPage(page);
+      amazonProductDetailsPage = new AmazonProductDetailsPage(page);
+      amazonNewItemsPage = new AmazonNewItemsPage(page);
+      amazonCartPage = new AmazonCartPage(page);
+      amazonGeneralPage = new AmazonGeneralPage(page);
+      amazonMainPage.navigate();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
    * Searches @Amazon for cheapest proposal of products provided by data provider
    */
   @Test(dataProvider = "provideSearchItemData")
   private void searchForItemPutCartAndCheckTest(String userId, String passWord,
       String item2search) {
-
     try {
-      listAmazonProducts.clear();
-      AmazonMainPage.navigate(page);
-      AmazonMainPage.login(page, userId, passWord);
-      AmazonMainPage.acceptCookies(page);
-      AmazonMainPage.searchForItem(page, item2search);
-      AmazonSearchResultPage.sortASC(page);
-      listAmazonProducts = AmazonSearchResultPage.getShoppingItemsDetails(page);
+      amazonMainPage.login(userId, passWord);
+      amazonMainPage.acceptCookies();
+      amazonMainPage.searchForItem(item2search);
+      amazonSearchResultPage.sortASC();
+      listAmazonProducts = amazonSearchResultPage.getShoppingItemsDetails();
       findCheapestProduct();
-      AmazonSearchResultPage.clickOnCheapestItemAndPutInBasked(page,
-          cheapestAmazonProduct.getLocatorProductName());
-      AmazonProductDetailsPage.putProductToCart(page);
-      AmazonNewItemsPage.clickShoppingCartButton(page);
-      cartAmazonProduct = AmazonCartPage.getProductDetails(page);
+      amazonSearchResultPage
+          .clickOnCheapestItemAndPutInBasked(cheapestAmazonProduct.getLocatorProductName());
+      amazonProductDetailsPage.putProductToCart();
+      amazonNewItemsPage.clickShoppingCartButton();
+      cartAmazonProduct = amazonCartPage.getProductDetails();
       assertEquals(cheapestAmazonProduct.getName(), cartAmazonProduct.getName());
       assertEquals(cheapestAmazonProduct.getPrice(), cartAmazonProduct.getPrice());
-      AmazonCartPage.removeSelectedItemFromCart(page);
-      AmazonGeneralPage.logout(page);
+      amazonCartPage.removeSelectedItemFromCart();
+      amazonGeneralPage.logout();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -106,14 +130,18 @@ public class FunctionalTest {
   private void findCheapestProduct() {
     double compare_price = 9999.99;
     int cheapest_item = 0;
-    for (int i = 0; i <= listAmazonProducts.size() - 1; i++) {
-      amazonProduct = listAmazonProducts.get(i);
-      if ((amazonProduct.getPrice() > 0.0) && (amazonProduct.getPrice() < compare_price)) {
-        compare_price = amazonProduct.getPrice();
-        cheapest_item = i;
+    try {
+      for (int i = 0; i <= listAmazonProducts.size() - 1; i++) {
+        amazonProduct = listAmazonProducts.get(i);
+        if ((amazonProduct.getPrice() > 0.0) && (amazonProduct.getPrice() < compare_price)) {
+          compare_price = amazonProduct.getPrice();
+          cheapest_item = i;
+        }
       }
+      cheapestAmazonProduct = listAmazonProducts.get(cheapest_item);
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-    cheapestAmazonProduct = listAmazonProducts.get(cheapest_item);
   }
 
   /**

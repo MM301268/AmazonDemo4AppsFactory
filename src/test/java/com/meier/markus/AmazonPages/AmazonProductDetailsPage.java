@@ -18,14 +18,23 @@ public class AmazonProductDetailsPage {
    * @Class property CART_BUTTON Locator for cart button
    */
   private static final String CART_BUTTON = "#add-to-cart-button";
+  private Page page;
 
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonProductDetailsPage(Page page) {
+    this.page = page;
+  }
 
   /**
    * Put Product to Cart
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void putProductToCart(Page page) {
+  public void putProductToCart() {
     page.click(CART_BUTTON);
   }
 

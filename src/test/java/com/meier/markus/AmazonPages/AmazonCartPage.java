@@ -28,13 +28,23 @@ public class AmazonCartPage {
   private static final String SELECTOR_NULL = "li[role='option'] >> text='0 (Löschen)'";
   private static final String SELECTOR_PRICE =
       "//*[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold']";
+  private Page page;
+
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonCartPage(Page page) {
+    this.page = page;
+  }
 
   /**
    * Get product details for checking against original order
    * 
    * @return AmazonProduct Defines product in the shopping cart
    */
-  public static AmazonProduct getProductDetails(Page page) {
+  public AmazonProduct getProductDetails() {
     try {
       AmazonProduct amazonProduct = new AmazonProduct();
       amazonProduct.setStrPrice(page.textContent(SELECTOR_PRICE));
@@ -56,7 +66,7 @@ public class AmazonCartPage {
   /**
    * Removes single item for shopping cart
    */
-  public static void removeSelectedItemFromCart(Page page) {
+  public void removeSelectedItemFromCart() {
     page.click(SELECTOR_AMOUNT);
     page.click(SELECTOR_NULL);
   }

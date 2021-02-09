@@ -37,13 +37,23 @@ public class AmazonMainPage {
   private static final String SIGNIN_SUBNMIT_BUTTON = "#signInSubmit";
   private static final String TEST_OBJECT_URL = "https://www.amazon.de";
   private static final String USER_ID = "#ap_email";
+  private Page page;
+
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonMainPage(Page page) {
+    this.page = page;
+  }
 
   /**
    * Get rid of the cookies dialog
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void acceptCookies(Page page) {
+  public void acceptCookies() {
     try {
       if (page.querySelector(ACCEPT_COKKIE_BUTTON) != null)
         page.click(ACCEPT_COKKIE_BUTTON);
@@ -57,7 +67,7 @@ public class AmazonMainPage {
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void login(Page page, String userIdValue, String passWordValue) {
+  public void login(String userIdValue, String passWordValue) {
     try {
       page.click(SIGNIN_BUTTON);
       page.fill(USER_ID, userIdValue);
@@ -77,7 +87,7 @@ public class AmazonMainPage {
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void navigate(Page page) {
+  public void navigate() {
     try {
       page.navigate(TEST_OBJECT_URL);
     } catch (Exception e) {
@@ -90,7 +100,7 @@ public class AmazonMainPage {
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void searchForItem(Page page, String searchItem) {
+  public void searchForItem(String searchItem) {
     try {
       page.click(GLOBAL_SEARCH_FIELD);
       page.type(GLOBAL_SEARCH_FIELD, searchItem);

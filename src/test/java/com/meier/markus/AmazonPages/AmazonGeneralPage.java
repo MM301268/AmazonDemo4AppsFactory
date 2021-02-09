@@ -20,13 +20,23 @@ public class AmazonGeneralPage {
 
   private static final String ACCOUNT_DETAIL_LIST = ".nav-long-width";
   private static final String SIGNOUT = "//a[@id='nav-item-signout']/span";
+  private Page page;
+
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonGeneralPage(Page page) {
+    this.page = page;
+  }
 
   /**
    * Logout for User
    *
    * @param page => Object of playwright where most of methods are executed against
    */
-  public static void logout(Page page) {
+  public void logout() {
     try {
       page.hover(ACCOUNT_DETAIL_LIST);
       page.click(SIGNOUT);

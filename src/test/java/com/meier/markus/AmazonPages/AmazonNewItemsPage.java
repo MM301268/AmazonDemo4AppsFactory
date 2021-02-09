@@ -17,11 +17,21 @@ public class AmazonNewItemsPage {
    * @Class property LOCATOR_CART_BUTTON Locator for cart button
    */
   private final static String LOCATOR_CART_BUTTON = "#hlb-view-cart-announce";
+  private Page page;
+
+  /**
+   * Constructor
+   *
+   * @param page => Object of playwright where most of methods are executed against
+   */
+  public AmazonNewItemsPage(Page page) {
+    this.page = page;
+  }
 
   /**
    * Clicks on shopping card button
    */
-  public static void clickShoppingCartButton(Page page) {
+  public void clickShoppingCartButton() {
     try {
       page.click(LOCATOR_CART_BUTTON);
     } catch (Exception e) {
