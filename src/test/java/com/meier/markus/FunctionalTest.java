@@ -53,13 +53,19 @@ public class FunctionalTest {
 
   /**
    * DoBeforSuite is fired at the very first beginning before any test case starts PlayWrightWorker
-   * get instantiated and dimensions for browser are going to be set
+   * get instantiated and dimensions for browser are going to be set and initiates the Amazon pages
    */
   @BeforeSuite
   private void doBeforeSuite() {
     try {
       playWrightWorker = new PlayWrightWorker();
       page = playWrightWorker.init();
+      amazonMainPage = new AmazonMainPage(page);
+      amazonSearchResultPage = new AmazonSearchResultPage(page);
+      amazonProductDetailsPage = new AmazonProductDetailsPage(page);
+      amazonNewItemsPage = new AmazonNewItemsPage(page);
+      amazonCartPage = new AmazonCartPage(page);
+      amazonGeneralPage = new AmazonGeneralPage(page);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -67,19 +73,11 @@ public class FunctionalTest {
 
   /**
    * DoBeforTest clears List of Amazon products may have been filled by previous test cases and
-   * initiates the Amazon pages
    */
   @BeforeTest
   private void doBeforeTest() {
     try {
       listAmazonProducts.clear();
-      amazonMainPage = new AmazonMainPage(page);
-      amazonSearchResultPage = new AmazonSearchResultPage(page);
-      amazonProductDetailsPage = new AmazonProductDetailsPage(page);
-      amazonNewItemsPage = new AmazonNewItemsPage(page);
-      amazonCartPage = new AmazonCartPage(page);
-      amazonGeneralPage = new AmazonGeneralPage(page);
-      amazonMainPage.navigate();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -92,6 +90,7 @@ public class FunctionalTest {
   private void searchForItemPutCartAndCheckTest(String userId, String passWord,
       String item2search) {
     try {
+      amazonMainPage.navigate();
       amazonMainPage.login(userId, passWord);
       amazonMainPage.acceptCookies();
       amazonMainPage.searchForItem(item2search);

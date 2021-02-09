@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-09T13:27:55 MEZ" name="Default suite" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="41286">
+  <suite started-at="2021-02-09T13:33:53 MEZ" name="Default suite" finished-at="2021-02-09T13:34:25 MEZ" duration-ms="31420">
     <groups>
     </groups>
-    <test started-at="2021-02-09T13:27:55 MEZ" name="Default test" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="41286">
+    <test started-at="2021-02-09T13:33:53 MEZ" name="Default test" finished-at="2021-02-09T13:34:25 MEZ" duration-ms="31420">
       <class name="com.meier.markus.FunctionalTest">
-        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:50 MEZ" name="doBeforeSuite" finished-at="2021-02-09T13:27:55 MEZ" duration-ms="4690" status="PASS">
+        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:33:49 MEZ" name="doBeforeSuite" finished-at="2021-02-09T13:33:53 MEZ" duration-ms="4821" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeSuite -->
-        <test-method is-config="true" signature="doBeforeTest()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:55 MEZ" name="doBeforeTest" finished-at="2021-02-09T13:27:58 MEZ" duration-ms="3077" status="PASS">
+        <test-method is-config="true" signature="doBeforeTest()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:33:53 MEZ" name="doBeforeTest" finished-at="2021-02-09T13:33:53 MEZ" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:58 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:28:12 MEZ" duration-ms="14212" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:33:53 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:34:10 MEZ" duration-ms="16940" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -36,7 +36,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:28:12 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="23961" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:34:10 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:34:25 MEZ" duration-ms="14437" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -57,7 +57,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:28:36 MEZ" name="doAfterSuite" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:34:25 MEZ" name="doAfterSuite" finished-at="2021-02-09T13:34:25 MEZ" duration-ms="90" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doAfterSuite -->
