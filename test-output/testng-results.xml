@@ -2,16 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-09T12:39:33 MEZ" name="Default suite" finished-at="2021-02-09T12:40:04 MEZ" duration-ms="31355">
+  <suite started-at="2021-02-09T13:27:55 MEZ" name="Default suite" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="41286">
     <groups>
     </groups>
-    <test started-at="2021-02-09T12:39:33 MEZ" name="Default test" finished-at="2021-02-09T12:40:04 MEZ" duration-ms="31355">
+    <test started-at="2021-02-09T13:27:55 MEZ" name="Default test" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="41286">
       <class name="com.meier.markus.FunctionalTest">
-        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T12:39:28 MEZ" name="doBeforeSuite" finished-at="2021-02-09T12:39:33 MEZ" duration-ms="5247" status="PASS">
+        <test-method is-config="true" signature="doBeforeSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:50 MEZ" name="doBeforeSuite" finished-at="2021-02-09T13:27:55 MEZ" duration-ms="4690" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doBeforeSuite -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T12:39:33 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T12:39:49 MEZ" duration-ms="16547" status="PASS">
+        <test-method is-config="true" signature="doBeforeTest()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:55 MEZ" name="doBeforeTest" finished-at="2021-02-09T13:27:58 MEZ" duration-ms="3077" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeTest -->
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:27:58 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:28:12 MEZ" duration-ms="14212" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,7 +36,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T12:39:49 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T12:40:04 MEZ" duration-ms="14762" status="PASS">
+        <test-method signature="searchForItemPutCartAndCheckTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:28:12 MEZ" name="searchForItemPutCartAndCheckTest" data-provider="provideSearchItemData" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="23961" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,7 +57,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchForItemPutCartAndCheckTest -->
-        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@4d910fd6]" started-at="2021-02-09T12:40:04 MEZ" name="doAfterSuite" finished-at="2021-02-09T12:40:04 MEZ" duration-ms="63" status="PASS">
+        <test-method is-config="true" signature="doAfterSuite()[pri:0, instance:com.meier.markus.FunctionalTest@26275bef]" started-at="2021-02-09T13:28:36 MEZ" name="doAfterSuite" finished-at="2021-02-09T13:28:36 MEZ" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doAfterSuite -->

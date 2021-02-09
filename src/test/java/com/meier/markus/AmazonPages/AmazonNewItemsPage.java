@@ -15,6 +15,7 @@ public class AmazonNewItemsPage {
    * Class properties repository for web element detection
    *
    * @Class property LOCATOR_CART_BUTTON Locator for cart button
+   * @Class property page Object of playwright where most of methods are executed against
    */
   private final static String LOCATOR_CART_BUTTON = "#hlb-view-cart-announce";
   private Page page;

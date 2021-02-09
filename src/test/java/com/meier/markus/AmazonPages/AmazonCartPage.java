@@ -21,6 +21,7 @@ public class AmazonCartPage {
    * @Class property SELECTOR_NAME Locator for product name
    * @Class property SELECTOR_NULL Locator amount 0 products to order (delete)
    * @Class property SELECTOR_PRICE Locator product price
+   * @Class property page Object of playwright where most of methods are executed against
    */
   private static final String SELECTOR_AMOUNT = "span[id='a-autoid-1-announce']";
   private static final String SELECTOR_NAME =

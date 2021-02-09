@@ -26,6 +26,7 @@ public class AmazonMainPage {
    * @Class property SIGNIN_SUBNMIT_BUTTON Locator for button sign in
    * @Class property TEST_OBJECT_URL URL of test object
    * @Class property USER_ID Locator for text field user id
+   * @Class property page Object of playwright where most of methods are executed against
    */
   private static final String ACCEPT_COKKIE_BUTTON = "#sp-cc-accept";
   private static final String CONTINUE_BUTTON = "#continue";
@@ -50,8 +51,6 @@ public class AmazonMainPage {
 
   /**
    * Get rid of the cookies dialog
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void acceptCookies() {
     try {
@@ -64,8 +63,6 @@ public class AmazonMainPage {
 
   /**
    * Login for User
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void login(String userIdValue, String passWordValue) {
     try {
@@ -84,8 +81,6 @@ public class AmazonMainPage {
 
   /**
    * Navigates the browser to Amazon's main page
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void navigate() {
     try {
@@ -97,8 +92,6 @@ public class AmazonMainPage {
 
   /**
    * searches for items on Amazon's main page
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void searchForItem(String searchItem) {
     try {

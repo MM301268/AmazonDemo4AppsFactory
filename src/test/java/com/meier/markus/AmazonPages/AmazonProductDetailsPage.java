@@ -16,6 +16,7 @@ public class AmazonProductDetailsPage {
    * Class properties repository for web element detection
    *
    * @Class property CART_BUTTON Locator for cart button
+   * @Class property page Object of playwright where most of methods are executed against
    */
   private static final String CART_BUTTON = "#add-to-cart-button";
   private Page page;
@@ -31,8 +32,6 @@ public class AmazonProductDetailsPage {
 
   /**
    * Put Product to Cart
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void putProductToCart() {
     page.click(CART_BUTTON);

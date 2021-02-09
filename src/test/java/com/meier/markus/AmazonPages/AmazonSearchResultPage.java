@@ -25,6 +25,7 @@ public class AmazonSearchResultPage {
    * @Class property PRODUCT_NAME_EXT Extension to PRODUCT_CONTAINER for determine the product's
    *        name
    * @Class property SORT_SELECTOR Locator for sorting search results
+   * @Class property page Object of playwright where most of methods are executed against
    */
   private static final String ITEM_SORT_ASC = "#s-result-sort-select_1";
   private static final String PRODUCT_CONTAINER =
@@ -47,6 +48,8 @@ public class AmazonSearchResultPage {
 
   /**
    * Click on cheapest item identified by the locator
+   * 
+   * @param locatorCheapestItem Locator for cheapest item
    */
   public void clickOnCheapestItemAndPutInBasked(String locatorCheapestItem) {
     page.click(locatorCheapestItem);
@@ -55,8 +58,8 @@ public class AmazonSearchResultPage {
   /**
    * Determine the product name for Amazon product
    *
-   * @param page => Object of playwright where most of methods are executed against
-   * @return Name
+   * @param product ContainerLocator for building the locator for name web element
+   * @return Name of product
    */
   private String getProductName(String productContainerLocator) {
     try {
@@ -73,8 +76,8 @@ public class AmazonSearchResultPage {
   /**
    * Determine the product price for Amazon product
    *
-   * @param page => Object of playwright where most of methods are executed against
-   * @return Price as string!!!
+   * @param product ContainerLocator for building the locator for name web element
+   * @return Price of product as !!!String!!!
    */
   private String getProductPrice(String productContainerLocator) {
     try {
@@ -98,7 +101,6 @@ public class AmazonSearchResultPage {
   /**
    * Getting the details (name, price) for Amazon products returned by search criteria and sort
    *
-   * @param page => Object of playwright where most of methods are executed against
    * @return List<AmazonProduct> => found first 5 based on search criteria and sort
    */
   public List<AmazonProduct> getShoppingItemsDetails() {
@@ -127,8 +129,6 @@ public class AmazonSearchResultPage {
 
   /**
    * Performs a sort of search results ASC
-   *
-   * @param page => Object of playwright where most of methods are executed against
    */
   public void sortASC() {
     try {
